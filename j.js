@@ -9,20 +9,22 @@ function start()
     {
         startTime = Date.now()-elapsedTime;
         timer = setInterval(update,10);
-        isRunning = false;
+        isRunning = true;
     }
 }
 function reset(){
     clearInterval(timer);
     startTime = 0;
     elapsedTime = 0;
-    isRunning = false;
+    isRunning = true;
     display.textContent = "00:00:00:00"
 }
 function stop(){
+    if(isRunning){
     clearInterval(timer);
     isRunning = false;
     elapsedTime = Date.now() - startTime;
+}
 }
 function update(){
     elapsedTime = Date.now() - startTime;
