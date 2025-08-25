@@ -1,0 +1,32 @@
+body{
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    font-size: 6rem;
+}
+#container{
+    display: flex;
+    flex-direction: column;
+}
+#controls button{
+    font-size: 3rem;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    text-align: center;
+    transition: 0.3 ease;
+    background-color: antiquewhite;
+}
+#controls button:hover{
+    background-color: black;
+    color : white;
+
+}
+#display{
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
