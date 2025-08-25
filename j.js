@@ -5,7 +5,7 @@ let elapsedTime = 0;
 let isRunning = false;
 function start()
 {
-    if(!false)
+    if(!isRunning)
     {
         startTime = Date.now()-elapsedTime;
         timer = setInterval(update,10);
@@ -22,12 +22,12 @@ function reset(){
 function stop(){
     clearInterval(timer);
     isRunning = false;
-    //elapsedTime = Date.now() - startTime;
+    elapsedTime = Date.now() - startTime;
 }
 function update(){
     elapsedTime = Date.now() - startTime;
     let hour = Math.floor(elapsedTime/(1000*60*60));
-    let minute = Math.floor((elapsedTime/((1000*60 ))%60));
+    let minute = Math.floor(elapsedTime/((1000*60 ))%60);
     let second = Math.floor((elapsedTime/1000)%60 );
     let milliseconds = Math.floor(elapsedTime % 1000 / 10);
     hour  = hour<10?"0"+hour:hour;
