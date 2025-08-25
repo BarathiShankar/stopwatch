@@ -16,8 +16,9 @@ function reset(){
     clearInterval(timer);
     startTime = 0;
     elapsedTime = 0;
-    isRunning = true;
+    isRunning = false;
     display.textContent = "00:00:00:00"
+    
 }
 function stop(){
     if(isRunning){
