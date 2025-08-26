@@ -12,6 +12,12 @@ It provides basic functionality to **start, stop, and reset** the timer with mil
 - Displays **hours, minutes, seconds, and milliseconds**  
 - Responsive and clean UI  
 - Button hover effects for better interactivity  
+---
+## SCREENSHOTS
+<img width="891" height="790" alt="Screenshot 2025-08-26 171750" src="https://github.com/user-attachments/assets/7c5516a4-5cf1-47f2-bb65-2bda69a3238e" />
+---
+<img width="892" height="827" alt="Screenshot 2025-08-26 171805" src="https://github.com/user-attachments/assets/7ffb8032-dd18-4466-9b6c-81ec21c01bdb" />
+
 
 ---
 
@@ -44,3 +50,5 @@ Edit
    - Resets display to `00:00:00:00`.  
 
 ---
+## RIGHTS
+All rights reserved by Bhuvanesh
