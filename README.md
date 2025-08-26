@@ -50,3 +50,5 @@ Edit
    - Resets display to `00:00:00:00`.  
 
 ---
+## RIGHTS
+All rights reserved by Bhuvanesh
