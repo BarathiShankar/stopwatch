@@ -1,10 +1,10 @@
+<!--Program using HTML to create a stopwatch using CSS and Javascript-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🔥 Neon Fire Stopwatch</title>
+  <title>THE STOPWATCH</title>
   <style>
-    /* 🌈 Animated Background */
     body {
       margin: 0;
       padding: 0;
@@ -17,7 +17,6 @@
       animation: bgCycle 8s infinite;
       transition: background-color 2s ease;
     }
-
     @keyframes bgCycle {
       0%   { background-color: #1e3c72; }
       25%  { background-color: #00c9a7; }
@@ -25,28 +24,22 @@
       75%  { background-color: #ff5e62; }
       100% { background-color: #1e3c72; }
     }
-
-    /* 💡 Flickering RGB Title */
     h1 {
       font-size: 5rem;
       margin-bottom: 2rem;
       letter-spacing: 4px;
       animation: rgbFlicker 1.5s infinite;
-      transition: color 0.5s ease;
       text-shadow:
         0 0 10px rgba(0, 0, 0, 0.6),
         0 0 20px rgba(255, 255, 255, 0.3),
         0 0 30px rgba(255, 255, 255, 0.2);
     }
-
     @keyframes rgbFlicker {
       0%   { color: #ff0000; text-shadow: 0 0 20px #ff0000; }
       33%  { color: #00ff00; text-shadow: 0 0 20px #00ff00; }
       66%  { color: #0000ff; text-shadow: 0 0 20px #0000ff; }
       100% { color: #ff0000; text-shadow: 0 0 20px #ff0000; }
     }
-
-    /* 🔥 Neon Border Container */
     #container {
       background: rgba(0, 0, 0, 0.6);
       padding: 40px;
@@ -60,8 +53,6 @@
       backdrop-filter: blur(10px);
       text-align: center;
     }
-
-    /* 🔥 Fire Glow Display */
     #display {
       font-size: 4rem;
       margin-bottom: 2rem;
@@ -74,21 +65,17 @@
         0 0 40px #ffa500;
       animation: fireGlow 2s infinite alternate;
     }
-
     @keyframes fireGlow {
       0%   { text-shadow: 0 0 10px #ff4500; }
       50%  { text-shadow: 0 0 20px #ff6347; }
       100% { text-shadow: 0 0 30px #ff8c00; }
     }
-
-    /* ⚡ Button Styling */
     #controls {
       display: flex;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
     }
-
     #controls button {
       font-size: 2rem;
       padding: 15px 30px;
@@ -107,7 +94,27 @@
       background: linear-gradient(to right, #ff0000, #ff6a00);
     }
 
-    /* 📱 Responsive */
+    #laps {
+      margin-top: 20px;
+      color: #fff;
+      text-align: center;
+    }
+    #laps h2 {
+      text-shadow: 0 0 10px #ff4500;
+    }
+    #lapList {
+      list-style: none;
+      padding: 0;
+    }
+    #lapList li {
+      font-size: 1.5rem;
+      margin: 8px 0;
+      color: #fff5e6;
+      text-shadow:
+        0 0 10px #ff4500,
+        0 0 20px #ff6347,
+        0 0 30px #ff8c00;
+    }
     @media (max-width: 600px) {
       h1 {
         font-size: 3rem;
@@ -130,16 +137,21 @@
       <button onclick="start()">Start</button>
       <button onclick="stop()">Stop</button>
       <button onclick="reset()">Reset</button>
+      <button onclick="lap()">Lap</button>
     </div>
   </div>
-
+  <div id="laps">
+    <h2>Lap Times</h2>
+    <ul id="lapList"></ul>
+  </div>
   <script>
     let display = document.getElementById("display");
+    let lapList = document.getElementById("lapList");
     let timer = null;
     let startTime = 0;
     let elapsedTime = 0;
     let isRunning = false;
-
+    let lapCount = 0;
     function start() {
       if (!isRunning) {
         startTime = Date.now() - elapsedTime;
@@ -147,7 +159,6 @@
         isRunning = true;
       }
     }
-
     function stop() {
       if (isRunning) {
         clearInterval(timer);
@@ -155,15 +166,15 @@
         isRunning = false;
       }
     }
-
     function reset() {
       clearInterval(timer);
       startTime = 0;
       elapsedTime = 0;
       isRunning = false;
       display.textContent = "00:00:00:00";
+      lapCount = 0;
+      lapList.innerHTML = "";
     }
-
     function update() {
       elapsedTime = Date.now() - startTime;
       let hour = Math.floor(elapsedTime / (1000 * 60 * 60));
@@ -178,6 +189,16 @@
 
       display.textContent = `${hour}:${minute}:${second}:${milliseconds}`;
     }
+    function lap() {
+      if (isRunning) {
+        lapCount++;
+        const lapTime = display.textContent;
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>Lap ${lapCount}:</strong> ${lapTime}`;
+        lapList.appendChild(li);
+      }
+    }
   </script>
 </body>
 </html>
+<!--PROGRAM COMPLETED-->
